@@ -1,0 +1,19 @@
+@import "../../common/_index";
+
+@mixin codeModel() {
+  $codeBgColor: $textColor;
+  .code {
+    &_code {
+      font-family: consolas;
+      font-size: 12px;
+      line-height: 1.2;
+      color: #adadad;
+
+      &.isNotHeightlight {
+        padding: 4px;
+        color: #c3c3c3;
+        background-color: $codeBgColor;
+      }
+    }
+  }
+}

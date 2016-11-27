@@ -1,0 +1,9 @@
+@import "../../common/_index";
+
+@mixin mainInnerModel() {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: $contentWidth;
+  margin: 0 auto 0 auto;
+  padding: 0 8px;
+}

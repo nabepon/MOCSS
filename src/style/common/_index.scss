@@ -1,0 +1,3 @@
+// _index.scssだけ読み込めばcommon配下のmixinが使えるようにする
+@import './_util.scss';
+@import './_theme.scss';

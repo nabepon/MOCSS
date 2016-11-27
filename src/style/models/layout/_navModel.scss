@@ -1,0 +1,37 @@
+@import "../../common/_index";
+
+@mixin navModel() {
+  color: rgba(158, 251, 147, 1);
+
+  $borderColor: #9efb93;
+
+  .nav {
+    &_navigations {
+      display: flex;
+      border-bottom: 1px solid $borderColor;
+
+      > li {
+        width: 100%;
+      }
+    }
+
+    &_btn {
+      display: block;
+      padding: 8px 0 4px 0;
+      text-align: center;
+      text-decoration: none;
+      color: #4a4a4a;
+      border-bottom: 4px solid rgba(0,0,0,0);
+      background-color: rgba(255, 255, 255, 0.9);
+      transition-duration: 300ms;
+      transition-property: background-color;
+      &.isActive {
+        font-weight: bold;
+        border-bottom: 4px solid $borderColor;
+      }
+      &:hover {
+        background-color: rgba($borderColor, 0.5);
+      }
+    }
+  }
+}

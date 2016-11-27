@@ -1,0 +1,18 @@
+@import "../common/_index.scss";
+@import "../models/article/_articlesModel";
+@import "../models/article/_articleSectionModel";
+@import "../models/article/_codeModel";
+
+.documentPackage {
+  .codeDescriptionComponent {
+    @include articlesModel;
+  }
+  .articleSectionComponent {
+    @include articleSectionModel;
+    margin-top: 24px;
+  }
+  .codeComponent {
+    @include codeModel;
+    margin-top: 8px;
+  }
+}

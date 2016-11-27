@@ -1,0 +1,42 @@
+@import "../../common/_index";
+
+@mixin mainVisualModel() {
+  .mainVisual {
+    &_container {
+      position: relative;
+      height: 50vw;
+      max-height: 340px;
+    }
+
+    &_bg {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAADCAYAAABfwxXFAAAAYklEQVQYVwFXAKj/AYubWP8xKiUA9+0CAObe8wD1/AgA/hPpANXY4gABo69m/9LV1QAIDBsAaVx+ALWzrwDqCdMA8/34AAG4yHL/IBgqAP8FHQDd4NcAxdSvAAIYAwD3Af8A9gAm7j3f/iMAAAAASUVORK5CYII=");
+      background-size: cover;
+      opacity: 0.85;
+    }
+
+    &_logoWrap {
+      display: block;
+      position: absolute;
+      top: 22%;
+      width: 100%;
+      padding: 16px;
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    &_logo {
+      display: block;
+      position: relative;
+      right: 0;
+      left: 0;
+      width: 100%;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+  }
+}

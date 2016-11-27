@@ -1,0 +1,38 @@
+<!DOCTYPE html><html><head><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta charset="utf-8"><title>MOCSS - CSSのModule設計</title><meta name="title" content="MOCSS - document"><meta name="description" content="MOCSS - document"><meta name="keywords" content="MOCSS - document"><meta name="author" content="Takaaki Watanabe"><meta property="og:type" content="website"><meta property="og:title" content="MOCSS - CSSのModule設計"><meta property="og:description" content="MOCSS（モックス）は、コンポーネント志向のCSS設計です。CSS Modules、BEM、SMACSSに影響を受けて作られました。"><meta property="og:image" content="https://nabepon.github.io/MOCSS/example/img/mocss_ogp.png"><meta property="og:url" content="https://nabepon.github.io/MOCSS"><meta property="og:site_name" content="MOCSS"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@tabo_yokohama"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="../vendor/style/vendor.css"><link rel="stylesheet" href="../style/style.css"></head><body><div class="layoutPackage documentPackage documentPage"><nav class="navComponent"><ul class="nav_navigations"><li><a class="nav_btn " href="./">Top</a></li><li><a class="nav_btn isActive" href="./document.html">Code</a></li><li><a class="nav_btn " href="https://github.com/nabepon/MOCSS" target="_blank">GitHub</a></li></ul></nav><main><div class="mainInnerComponent"><article class="codeDescriptionComponent"><div class="articles_inner"><section class="articles_section"><h1 class="articles_h1">コード説明</h1><div class="articles_text"><p class="articles_p">本サンプルのコードについて、説明が必要な部分の解説です。またサンプル全体についての解説ではないのでご了承ください。<br>MOCSSについての概要は <a target="_blank" href="http://qiita.com/nabepon/items/672b40647acc38dc97bb">こちらのページ</a> を参照してください。追加の説明はQiitaの方にpostします。<br></p></div></section><section class="articleSectionComponent"><h2 class="article_h1">Package指定</h2><div class="article_text"><p class="article_p"><b>Package複数指定について。</b><br>本サンプルではtopとlayoutを指定していますが、基本的にこれ以上の<mark>複数Package指定は可能な限り避けます。</mark><br></p><div class="codeComponent"><pre class="code_pre"><code class="code_code html">// index.ejs
+&lt;div class=&#34;layoutPackage topPackage topPage&#34;&gt;...&lt;/div&gt;
+</code></pre></div></div><div class="article_text"><p class="article_p"><b>Package分割について。</b><br>index.ejsもdocument.ejsも、どちらも記事ページなので本当は articlePackage とでもして1つにするところです。<br>本サンプルはサンプルなので topPackage と documentPackage で分けています。<br></p><div class="codeComponent"><pre class="code_pre"><code class="code_code html">// index.ejs
+&lt;div class=&#34;layoutPackage topPackage topPage&#34;&gt;...&lt;/div&gt;
+
+// docment.ejs
+&lt;div class=&#34;layoutPackage documentPackage documentPage&#34;&gt;...&lt;/div&gt;</code></pre></div><div class="codeComponent"><pre class="code_pre"><code class="code_code html">// 本当は以下のようにすべき
+// index.ejs
+&lt;div class=&#34;layoutPackage articlePackage topPage&#34;&gt;...&lt;/div&gt;
+
+// document.ejs
+&lt;div class=&#34;layoutPackage articlePackage documentPage&#34;&gt;...&lt;/div&gt;
+</code></pre></div></div></section><section class="articleSectionComponent"><h2 class="article_h1">Component指定</h2><div class="article_text"><p class="article_p"><b>Componentの入れ子ついて。</b><br>html構造はComponentが入れ子になっていても、対応する<mark>CSSのComponentは入れ子で書かない</mark>ようにします。</p><div class="codeComponent"><pre class="code_pre"><code class="code_code html">// index.ejs
+// HtmlのComponentの入れ子に対し
+&lt;div class=&#34;mainInnerComponent&#34;&gt;
+  &lt;article class=&#34;exampleDescriptionComponent&#34;&gt;
+    ...
+    &lt;section class=&#34;articleSectionComponent&#34;&gt;...&lt;/section&gt;
+    ...
+  &lt;/article&gt;
+&lt;/div&gt;</code></pre></div><div class="codeComponent"><pre class="code_pre"><code class="code_code sass">// topPackage.scss
+// CSSは入れ子にしない
+.mainVisualComponent {...}
+.exampleDescriptionComponent{...}
+.articleSectionComponent{...}
+</code></pre></div></div><div class="article_text"><p class="article_p"><b>classのprefixについて。</b><br>BEMのBlockに相当するprefixをアンダーバー区切りで付け、Component内の<mark>子Componentに影響を与えるのを防ぐ</mark>ようにします。<br>この問題はCSSの大きな問題で、解決するためのアプローチはいくつか考えられますが、今回はシンプルにBEMスタイルでいきます。<br>以下の部分ではarticle_の部分がBEMのBlockに相当します。</p><div class="codeComponent"><pre class="code_pre"><code class="code_code html">// index.ejs
+&lt;article class=&#34;codeDescriptionComponent&#34;&gt;
+  &lt;div class=&#34;articles_inner&#34;&gt;
+    &lt;section class=&#34;articles_section&#34;&gt;...&lt;/section&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre></div></div><div class="article_text"><p class="article_p"><b>htmlとComponentの構造の分離について。</b><br>以下の部分ではh2要素にarticle_h1とclassが付いているので、この点について説明します。<br>htmlの構造としては文脈上h2が当てられていますが、Component単体としてみた場合にはh2要素がもっともレベルの高いH要素（h1）です。そのためh2に対してarticle_h1がついていて、こうしておくと文脈によってh3に変わったとしてもスタイルの変更をしなくて済みます。</p><div class="codeComponent"><pre class="code_pre"><code class="code_code html">// index.ejs
+&lt;section class=&#34;articleSectionComponent&#34;&gt;
+  &lt;h2 class=&#34;article_h1&#34;&gt;概要&lt;/h2&gt;
+  &lt;div class=&#34;article_text&#34;&gt;...&lt;/div&gt;
+&lt;/section&gt;</code></pre></div><p class="article_p">以下のul要素も同様の理由からarticle_ulではなくarticle_listとつけています。<br>ol要素になる場合もあるかもしれないですからね。<br></p><div class="codeComponent"><pre class="code_pre"><code class="code_code html">// index.ejs
+&lt;ul class=&#34;article_list&#34;&gt;...&lt;/ul&gt;</code></pre></div></div></section></div></article></div></main><footer class="footerComponent"><div class="copy_container"><span class="copy_text">© 2016 Takaaki Watanabe</span></div></footer></div></body><!--&#91;if lt IE 9&#93;><script src="//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script><!&#91;endif&#93;--><script src="../vendor/js/vendor.js"></script></html><script>
+  document.addEventListener('DOMContentLoaded', function(){ hljs.initHighlightingOnLoad() });
+</script></html>

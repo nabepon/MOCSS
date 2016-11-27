@@ -1,0 +1,28 @@
+@import "../common/_index.scss";
+@import "../models/layout/_mainInnerModel";
+@import "../models/layout/_navModel";
+@import "../models/layout/_footerModel";
+
+.layoutPackage {
+  .mainInnerComponent {
+    @include mainInnerModel;
+  }
+  .navComponent {
+    @include navModel;
+  }
+  .footerComponent {
+    @include footerModel;
+  }
+
+  // Page
+  &.topPage {
+    .mainInnerComponent {
+      margin-top: 18px;
+    }
+  }
+  &.documentPage {
+    .mainInnerComponent {
+      margin-top: 24px;
+    }
+  }
+}

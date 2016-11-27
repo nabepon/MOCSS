@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<%
+var title = typeof title !== 'undefined' ? title : '';
+var description = typeof description !== 'undefined' ? description : '';
+var keywords = typeof keywords !== 'undefined' ? keywords : '';
+%>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <title>MOCSS - CSSのModule設計</title>
+  <meta name="title" content="<%= title || 'MOCSS - top' %>">
+  <meta name="description" content="<%= title || 'MOCSS（モックス）は、コンポーネント志向のCSS設計です。CSS Modules、BEM、SMACSSに影響を受けて作られました。' %>">
+  <meta name="keywords" content="<%= title || 'MOCSS, CSS設計, CSS Modules, SASS, BEM' %>">
+  <meta name="author" content="Takaaki Watanabe">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MOCSS - CSSのModule設計">
+  <meta property="og:description" content="MOCSS（モックス）は、コンポーネント志向のCSS設計です。CSS Modules、BEM、SMACSSに影響を受けて作られました。">
+  <meta property="og:image" content="https://nabepon.github.io/MOCSS/example/img/mocss_ogp.png">
+  <meta property="og:url" content="https://nabepon.github.io/MOCSS">
+  <meta property="og:site_name" content="MOCSS">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@tabo_yokohama">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../vendor/style/vendor.css">
+  <link rel="stylesheet" href="../style/style.css">

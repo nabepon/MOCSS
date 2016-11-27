@@ -1,0 +1,79 @@
+<%- include('layout/htmlStart') %>
+<%- include('layout/bodyStart') %>
+<div class="layoutPackage topPackage topPage">
+  <div class="mainVisualComponent">
+    <%- include('component/mainVisual') %>
+  </div>
+
+  <nav class="navComponent">
+    <%- include('component/nav', {nav: 1}) %>
+  </nav>
+
+  <main>
+    <div class="mainInnerComponent">
+      <article class="exampleDescriptionComponent">
+        <div class="articles_inner">
+          <h1 class="articles_h1">MOCSS サンプル</h1>
+
+          <section class="articleSectionComponent">
+            <h2 class="article_h1">概要</h2>
+            <div class="article_text">
+              <p class="article_p">
+                このページはCSS設計【MOCSS】のごく小さなサンプルページです。<br>
+                MOCSSについての概要は <a target="_blank" href="http://qiita.com/nabepon/items/672b40647acc38dc97bb">こちらのページ</a> を参照してください。<br>
+              </p>
+            </div>
+          </section>
+
+          <section class="articleSectionComponent">
+            <h2 class="article_h1">ディレクトリ構成</h2>
+            <div class="article_text">
+              <dl class="article_dl">
+                <dt>src/style/common</dt>
+                <dd>共通スタイル用ディレクトリ。_index.scssが他ディレクトリからのインターフェースになっています。</dd>
+                <dt>src/style/models</dt>
+                <dd>Model用ディレクトリ。mixin以外は禁止のディレクトリです。</dd>
+                <dt>src/style/packages</dt>
+                <dd>Package, Component, Pageのディレクトリ。規模が大きい場合は、Packageをさらにディレクトリにして分割します。今回は小さいので1Package 1ファイルです。</dd>
+                <dt>src/template</dt>
+                <dd>ejsのテンプレートが入っています。</dd>
+              </dl>
+            </div>
+          </section>
+
+          <section class="articleSectionComponent">
+            <h2 class="article_h1">環境</h2>
+            <div class="article_text">
+              <p class="article_p">このサンプルページでは以下のツールを使用しています。</p>
+              <ul class="article_list">
+                <li>gulp</li>
+                <li>sass</li>
+                <li>postcss</li>
+                <li>ejs</li>
+                <li>Browsersync</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="articleSectionComponent">
+            <h2 class="article_h1">実行方法</h2>
+            <div class="article_text">
+              <p class="article_p">
+                GitHubからこのプロジェクトをcloneしてきます。<br>
+                npm install を実行します（最初の1回のみ）。<br>
+                npm run dev を実行します。<br>
+                srcがビルドされ、exampleに吐き出されます。<br>
+                example/html/index.html を開くと確認できます。 <br>
+              </p>
+            </div>
+          </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="footerComponent">
+    <%- include('component/footer')%>
+  </footer>
+</div>
+<%- include('layout/bodyEnd') %>
+<%- include('layout/htmlEnd') %>

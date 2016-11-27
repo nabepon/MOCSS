@@ -1,0 +1,5 @@
+<%
+// コード行頭の改行削除
+var codeStr = include('../code/' + file).replace(/[\s\S]*?(.)/, "$1");
+%>
+<pre class="code_pre"><code class="code_code <%= type %>"><%= codeStr %></code></pre>

@@ -1,0 +1,23 @@
+@import "../../common/_index";
+
+@mixin articlesModel() {
+  .articles {
+    &_inner {
+    }
+    &_h1 {
+      padding: 8px 8px 0;
+      font-size: $fontSizeHead1;
+      border-bottom: 2px solid #e2e2e2;
+    }
+    &_h2 {
+      padding: 8px 8px 0;
+      font-size: $fontSizeHead1;
+      border-bottom: 2px solid #e2e2e2;
+    }
+    &_text {
+      margin-left: 8px;
+      padding: 8px 8px 0;
+      font-size: $fontSizeM;
+    }
+  }
+}

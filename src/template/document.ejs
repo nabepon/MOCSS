@@ -1,0 +1,116 @@
+<%- include('layout/htmlStart', {title: 'MOCSS - document'}) %>
+<%- include('layout/bodyStart') %>
+<div class="layoutPackage documentPackage documentPage">
+  <nav class="navComponent">
+    <%- include('component/nav', {nav: 2}) %>
+  </nav>
+
+  <main>
+    <div class="mainInnerComponent">
+      <article class="codeDescriptionComponent">
+        <div class="articles_inner">
+          <section class="articles_section">
+            <h1 class="articles_h1">コード説明</h1>
+            <div class="articles_text">
+              <p class="articles_p">
+                本サンプルのコードについて、説明が必要な部分の解説です。またサンプル全体についての解説ではないのでご了承ください。<br>
+                MOCSSについての概要は <a target="_blank" href="http://qiita.com/nabepon/items/672b40647acc38dc97bb">こちらのページ</a> を参照してください。
+                追加の説明はQiitaの方にpostします。<br>
+              </p>
+            </div>
+          </section>
+
+          <%# 1 %>
+          <section class="articleSectionComponent">
+            <h2 class="article_h1">Package指定</h2>
+
+            <%# 1-1 %>
+            <div class="article_text">
+              <p class="article_p">
+                <b>Package複数指定について。</b><br>
+                本サンプルではtopとlayoutを指定していますが、
+                基本的にこれ以上の<mark>複数Package指定は可能な限り避けます。</mark><br>
+              </p>
+              <div class="codeComponent">
+                <%- include('component/code', {type: 'html', file: '1_1_1'}) %>
+              </div>
+            </div>
+
+            <%# 1-2 %>
+            <div class="article_text">
+              <p class="article_p">
+                <b>Package分割について。</b><br>
+                index.ejsもdocument.ejsも、どちらも記事ページなので本当は articlePackage とでもして1つにするところです。<br>
+                本サンプルはサンプルなので topPackage と documentPackage で分けています。<br>
+              </p>
+              <div class="codeComponent">
+                <%- include('component/code', {type: 'html', file: '1_2_1'}) %>
+              </div>
+              <div class="codeComponent">
+                <%- include('component/code', {type: 'html', file: '1_2_2'}) %>
+              </div>
+            </div>
+          </section>
+
+          <%# 2 %>
+          <section class="articleSectionComponent">
+            <h2 class="article_h1">Component指定</h2>
+            <%# 2-1 %>
+            <div class="article_text">
+              <p class="article_p">
+                <b>Componentの入れ子ついて。</b><br>
+                html構造はComponentが入れ子になっていても、対応する<mark>CSSのComponentは入れ子で書かない</mark>ようにします。
+              </p>
+              <div class="codeComponent">
+                <%- include('component/code', {type: 'html', file: '2-1-1'}) %>
+              </div>
+              <div class="codeComponent">
+                <%- include('component/code', {type: 'sass', file: '2-1-2'}) %>
+              </div>
+            </div>
+
+            <%# 2-2 %>
+            <div class="article_text">
+              <p class="article_p">
+                <b>classのprefixについて。</b><br>
+                BEMのBlockに相当するprefixをアンダーバー区切りで付け、Component内の<mark>子Componentに影響を与えるのを防ぐ</mark>ようにします。<br>
+                この問題はCSSの大きな問題で、解決するためのアプローチはいくつか考えられますが、今回はシンプルにBEMスタイルでいきます。<br>
+                以下の部分ではarticle_の部分がBEMのBlockに相当します。
+              </p>
+              <div class="codeComponent">
+                <%- include('component/code', {type: 'html', file: '2-2-1'}) %>
+              </div>
+            </div>
+            <div class="article_text">
+              <p class="article_p">
+                <b>htmlとComponentの構造の分離について。</b><br>
+                以下の部分ではh2要素にarticle_h1とclassが付いているので、この点について説明します。<br>
+                htmlの構造としては文脈上h2が当てられていますが、Component単体としてみた場合にはh2要素がもっともレベルの高いH要素（h1）です。
+                そのためh2に対してarticle_h1がついていて、こうしておくと文脈によってh3に変わったとしてもスタイルの変更をしなくて済みます。
+              </p>
+              <div class="codeComponent">
+                <%- include('component/code', {type: 'html', file: '2-2-2'}) %>
+              </div>
+              <p class="article_p">
+                以下のul要素も同様の理由からarticle_ulではなくarticle_listとつけています。<br>
+                ol要素になる場合もあるかもしれないですからね。<br>
+              </p>
+              <div class="codeComponent">
+                <%- include('component/code', {type: 'html', file: '2-2-3'}) %>
+              </div>
+            </div>
+          </section>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="footerComponent">
+    <%- include('component/footer')%>
+  </footer>
+</div>
+<%- include('layout/bodyEnd') %>
+<script>
+  document.addEventListener('DOMContentLoaded', function(){ hljs.initHighlightingOnLoad() });
+</script>
+<%- include('layout/htmlEnd') %>

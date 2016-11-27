@@ -1,0 +1,40 @@
+// サイト全体に適用するスタイルや、reset.cssなど読み込み
+
+@import "./_reset.scss";
+@import "./_index.scss";
+
+/*********************************
+# font
+*********************************/
+@font-face {
+  font-family: "Yu Gothic";
+  font-weight: normal;
+  src: local("Yu Gothic Medium");
+}
+@font-face {
+  font-family: "Yu Gothic";
+  font-weight: bold;
+  src: local("Yu Gothic Bold");
+}
+body {
+  font-family: "Yu Gothic", "YuGothic", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "sans-serif";
+  line-height: 1.8;
+  color: $textColor;
+}
+
+/*********************************
+# base
+*********************************/
+* {
+  box-sizing: border-box;
+}
+li {
+  list-style: none;
+}
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 50px + 32px;
+}

@@ -1,0 +1,27 @@
+@import "../../common/_index";
+
+@mixin footerModel() {
+  display: table;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  .copy {
+    &_container {
+      display: table-cell;
+      width: 100%;
+      height: 50px;
+      padding-right: 8px;
+      padding-left: 8px;
+      text-align: right;
+      vertical-align: middle;
+      background: #464646;
+    }
+    &_text {
+      display: inline-block;
+      margin-right: 12px;
+      font-size: $fontSizeS;
+      line-height: 1;
+      color: #fff;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@import "../../common/_index";
+
+@mixin articleSectionModel() {
+  margin-top: 24px;
+  .articleTitle {
+    &_h1 {
+      padding: 8px 8px 0;
+      font-size: $fontSizeHead2;
+      border-bottom: 2px solid #e2e2e2;
+    }
+    &_text {
+      margin-left: 8px;
+      padding: 8px 8px 0;
+      font-size: $fontSizeM;
+    }
+  }
+}

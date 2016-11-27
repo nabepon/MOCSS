@@ -1,0 +1,10 @@
+// 便利なツール群を定義
+
+@mixin clearfix() {
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+  }
+}

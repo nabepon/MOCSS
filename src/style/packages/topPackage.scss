@@ -1,0 +1,17 @@
+@import "../common/_index.scss";
+@import "../models/layout/_mainVisualModel";
+@import "../models/article/_articlesModel";
+@import "../models/article/_articleSectionModel";
+
+.topPackage {
+  .mainVisualComponent {
+    @include mainVisualModel;
+  }
+  .exampleDescriptionComponent {
+    @include articlesModel;
+  }
+  .articleSectionComponent {
+    @include articleSectionModel;
+    margin-top: 24px;
+  }
+}

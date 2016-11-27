@@ -1,0 +1,40 @@
+@import "../../common/_index";
+
+@mixin articleSectionModel() {
+  .article {
+    &_h1 {
+      padding: 8px 8px 0;
+      font-size: $fontSizeHead2;
+      border-bottom: 2px solid #e2e2e2;
+    }
+    &_text {
+      margin-right: 8px;
+      margin-left: 8px;
+      padding: 8px 8px 0;
+      font-size: $fontSizeM;
+      & + .article_text {
+        margin-top: 32px;
+      }
+    }
+    &_dl {
+      > dt {
+        display: list-item;
+        margin-left: 16px;
+        list-style: disc;
+        font-weight: bold;
+      }
+      > dd + dt {
+        margin-top: 8px;
+      }
+      > dd {
+        margin-left: 16px;
+      }
+    }
+    &_list {
+      > li {
+        margin-left: 16px;
+        list-style: disc;
+      }
+    }
+  }
+}
