@@ -1,9 +1,12 @@
 ![MOCSS](./logo.png)
+[demo]:https://nabepon.github.io/MOCSS/example/html/
+[qiita]:http://qiita.com/nabepon/items/672b40647acc38dc97bb
 
 # Overview
 MOCSS（モックス）は、CSS Modules、BEM、SMACSSに影響を受けて作られた、コンポーネント志向のCSS設計です。  
-コンポーネントが持つ保護と再利用という2つの性質を分けることで、強固さと柔軟さを兼ね備えているのが特徴です。 
+コンポーネントが持つ保護と再利用という2つの性質を分けることで、強固さと柔軟さを兼ね備えているのが特徴です。  
 
+[Qiita記事][qiita] | [Demo][demo] 
 
 # Background
 BEMやSMACSSといった様々なCSS設計があります。  
@@ -154,4 +157,4 @@ Html
 ```
 
 # Example
-近日中に、簡単なサンプルコードを用意します。  
+[こちら][demo] で簡単なサンプルがみれます。
